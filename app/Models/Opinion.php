@@ -5,17 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Opinion extends Model
 {
     use HasFactory;
 
-    protected $table = 'regiones';
+    protected $table = 'opiniones';
 
     protected $fillable = [
-        'nombre'
+        'usuario',
+        'opinion',
+        'calificacion',
+        'id_actividad'
     ];
 
     protected $hidden = [];
 
-    public $timestamps = false;
+    public $timestamps = true;
 }

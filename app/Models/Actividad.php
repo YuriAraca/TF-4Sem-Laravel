@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Region extends Model
+class Actividad extends Model
 {
     use HasFactory;
 
-    protected $table = 'regiones';
+    protected $table = 'actividades';
 
     protected $fillable = [
-        'nombre'
+        'actividad',
+        'descripcion',
+        'precio',
+        'duracion',
+        'id_lugar_turistico'
     ];
 
     protected $hidden = [];
