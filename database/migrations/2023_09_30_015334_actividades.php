@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('actividades', function (Blueprint $table) {
             $table->id();
-            $table->string('actividad');
-            $table->string('descripcion');
-            $table->double('precio', 8, 2);
-            $table->time('duracion');
-            $table->foreignId('id_lugar_turistico')->references('id')->on('lugares_turisticos');
+            $table->string('actividad')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->double('precio', 8, 2)->default(0);
+            $table->time('duracion')->default(0);
+            $table->foreignId('id_lugar_turistico')->references('id')->on('lugares_turisticos')->nullable();
         });
     }
 

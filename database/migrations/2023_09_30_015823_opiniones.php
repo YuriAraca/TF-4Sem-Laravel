@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('opiniones', function (Blueprint $table) {
             $table->id();
-            $table->string('usuario');
-            $table->text('opinion');
-            $table->enum('calificacion', [1, 2, 3, 4, 5]);
-            $table->foreignId('id_actividad')->references('id')->on('actividades');
+            $table->string('usuario')->nullable();
+            $table->text('opinion')->nullable();
+            $table->enum('calificacion', [0, 1, 2, 3, 4, 5])->default(0);
+            $table->foreignId('id_actividad')->references('id')->on('actividades')->nullable();
             $table->timestamps();
         });
     }

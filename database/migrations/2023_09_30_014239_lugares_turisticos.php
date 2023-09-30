@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('lugares_turisticos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('descripcion');
-            $table->double('precio_entrada', 8, 2);
-            $table->dateTime('horario');
-            $table->binary('imagen');
-            $table->foreignId('id_ciudad')->references('id')->on('ciudades');
+            $table->string('nombre')->nullable();
+            $table->string('descripcion')->nullable();
+            $table->double('precio_entrada', 8, 2)->default(0);
+            $table->dateTime('horario')->nullable();
+            $table->binary('imagen')->nullable();
+            $table->foreignId('id_ciudad')->references('id')->on('ciudades')->nullable();
         });
     }
 

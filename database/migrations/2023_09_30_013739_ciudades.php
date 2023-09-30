@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('ciudades', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->foreignId('id_region')->references('id')->on('regiones');
+            $table->string('nombre')->nullable();
+            $table->foreignId('id_region')->references('id')->on('regiones')->nullable();
         });
     }
 

@@ -13,6 +13,12 @@
             </div>
             <div class="contenido">
                 <h2>Machu Picchu</h2>
+
+                @if($lugar)
+                    {{$lugar}}
+                @else
+                    No hay datos
+                @endif
             </div>
         </a>
     </div>
