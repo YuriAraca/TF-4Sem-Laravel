@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lugares_turisticos', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('nombre')->nullable();
             $table->string('descripcion')->nullable();
             $table->double('precio_entrada', 8, 2)->default(0);

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('actividades', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('actividad')->nullable();
             $table->string('descripcion')->nullable();
             $table->double('precio', 8, 2)->default(0);

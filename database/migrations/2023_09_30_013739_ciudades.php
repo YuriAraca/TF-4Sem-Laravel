@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ciudades', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('nombre')->nullable();
             $table->foreignId('id_region')->references('id')->on('regiones')->nullable();
         });

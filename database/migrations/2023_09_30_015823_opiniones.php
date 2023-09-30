@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('opiniones', function (Blueprint $table) {
-            $table->id();
+            $table->id()->autoIncrement();
             $table->string('usuario')->nullable();
             $table->text('opinion')->nullable();
             $table->enum('calificacion', [0, 1, 2, 3, 4, 5])->default(0);
