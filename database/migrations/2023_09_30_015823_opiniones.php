@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('usuario')->nullable();
             $table->text('opinion')->nullable();
-            $table->enum('calificacion', [0, 1, 2, 3, 4, 5])->default(0);
+            $table->enum('calificacion', [0, 1, 2, 3, 4, 5])->nullable();
             $table->foreignId('id_actividad')->references('id')->on('actividades')->nullable();
             $table->timestamps();
         });

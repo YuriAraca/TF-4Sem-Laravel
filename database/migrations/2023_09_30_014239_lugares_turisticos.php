@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('nombre')->nullable();
             $table->string('descripcion')->nullable();
-            $table->double('precio_entrada', 8, 2)->default(0);
-            $table->dateTime('horario')->nullable();
+            $table->double('precio_entrada', 8, 2)->nullable();
+            $table->time('hora_entrada')->nullable();
+            $table->time('hora_salida')->nullable();
             $table->binary('imagen')->nullable();
             $table->foreignId('id_ciudad')->references('id')->on('ciudades')->nullable();
         });

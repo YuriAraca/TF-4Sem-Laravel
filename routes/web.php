@@ -24,3 +24,5 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'show']);
 
 Route::get('/system', [SystemController::class, 'show']);
+
+Route::post('/system', [SystemController::class, 'addContent']);

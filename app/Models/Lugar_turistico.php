@@ -15,7 +15,8 @@ class Lugar_turistico extends Model
         'nombre',
         'descripcion',
         'precio_entrada',
-        'horario',
+        'hora_entrada',
+        'hora_salida',
         'imagen',
         'id_ciudad'
     ];

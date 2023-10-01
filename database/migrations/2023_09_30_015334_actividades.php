@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('actividad')->nullable();
             $table->string('descripcion')->nullable();
-            $table->double('precio', 8, 2)->default(0);
-            $table->time('duracion')->default(0);
+            $table->double('precio', 8, 2)->nullable();
+            $table->time('duracion')->nullable();
             $table->foreignId('id_lugar_turistico')->references('id')->on('lugares_turisticos')->nullable();
         });
     }
