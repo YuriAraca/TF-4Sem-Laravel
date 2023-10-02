@@ -20,18 +20,9 @@ class SystemController extends Controller
         return view('system');
     }
 
+
     public function addContent(Request $request)
-    {
-
-        $region = $request->input('region');
-        $ciudad = $request->input('ciudad');
-        $lugarTuristico = $request->input('lugarTuristico');
-        $descripcion = $request->input('descripcion');
-        $inPrice = $request->input('inPrice');
-        $inTime = $request->input('inTime');
-        $outTime = $request->input('outTime');
-        $imagen = $request->input('imagen');        
-
+    {      
         try {
             DB::transaction(function () use($request){
         
@@ -53,21 +44,24 @@ class SystemController extends Controller
                     'id_ciudad' => $ciudad->id,
                     
                 ]);
-        
-                $actividad = Actividad::create([  
-                    'actividad' => 'valor4',
-                    'descripcion' => 'Descripción de la actividad',
-                    'precio' => 50.00,
-                    'duracion' => '01:00:00',
-                    'id_lugar_turistico' => $lugar_turistico->id,
-                ]);
+
+                if($request->input('actividad')){
+                    $actividad = Actividad::create([  
+                        'actividad' => $request->input('actividad'),
+                        'descripcion' => $request->input('descripcionActividad'),
+                        'precio' => $request->input('priceActividad'),
+                        'duracion' => $request->input('duracionActividad'),
+                        'id_lugar_turistico' => $lugar_turistico->id,
+                    ]);
+                }
+                    
             });
         
             return redirect('/system')->with('success', 'Se registro correctamente');
         
         } catch (\Exception $e) {
 
-            return redirect('/system')->with('error', 'Hubo un error al guardar los datos'.$e);
+            return redirect('/system')->with('error', 'Hubo un error al registrar los datos'.$e);
         }
     }
 }

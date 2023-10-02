@@ -1,6 +1,6 @@
 @include('templates.header')
 
-    <div class="container border mt-5">
+    <div class="container border my-5">
 
         @if (session('error'))
             <div class="alert alert-danger container text-center z-3" role="alert">
@@ -52,7 +52,7 @@
                     <label for="precio" class="form-label">Precio entrada</label>
                     <div class="input-group">
                         <span class="input-group-text" id="basic-addon1">S/ </span>
-                        <input type="number" name="inPrice" class="form-control" placeholder="Precio entrada" aria-label="precio" aria-describedby="basic-addon1">
+                        <input type="number" name="inPrice" class="form-control" placeholder="0" aria-label="precio" aria-describedby="basic-addon1">
                     </div>
                 </div>                
                     
@@ -77,11 +77,46 @@
                     <input type="file" name="imagen" class="form-control">
                 </div>
             </div>
-                
+
             <div>
-                <button class="btn btn-primary" type="submit">Agregar contenido</button>
+                <p class="btn btn-primary" id="btnDesplegarSectionActividad">Agregar actividad</p>
             </div>
 
+            <div id="sectionActividad" style="display: none;">
+
+                <div class="input-group mb-3 col">
+                    <label for="actividad" class="form-label">Actividad</label>
+                    <div class="input-group">
+                        <input type="text" name="actividad" class="form-control" placeholder="Nombre de actividad">
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Descripcion de actividad</span>
+                    <textarea class="form-control" name="descripcionActividad" aria-label="Descripcion actividad"></textarea>
+                </div>
+
+                <div class="row">
+                    <div class="input-group mb-3 col">
+                        <label for="priceActividad" class="form-label">Precio actividad</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">S/ </span>
+                            <input type="number" name="priceActividad" class="form-control" placeholder="0" aria-label="precio actividad" aria-describedby="basic-addon1">
+                        </div>
+                    </div> 
+    
+                    <div class="input-group mb-3 col">
+                        <label for="duracionActividad" class="form-label">Duracion de actividad</label>
+                        <div class="input-group">
+                            <input type="time" name="duracionActividad" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                
+            <button class="btn btn-success" type="submit">Agregar contenido</button>
+            
         </form>
     </div>
 
