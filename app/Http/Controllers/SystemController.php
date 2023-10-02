@@ -25,25 +25,35 @@ class SystemController extends Controller
     {      
         try {
             DB::transaction(function () use($request){
-        
+
+                if ($request->hasFile('imagen')) {
+                    $imagen = $request->file('imagen');
+                    $nombreImagen = time() . '.' . $imagen->getClientOriginalExtension();
+                    $imagen->move(public_path('images'), $nombreImagen);
+                } else {
+                    return redirect('/')->with('error', 'No se cargo la imagen.');
+                }
+                
                 $region = Region::create([
                     'nombre' => $request->input('region'),
                 ]);
-        
+
                 $ciudad = Ciudad::create([
                     'nombre' => $request->input('ciudad'),
                     'id_region' => $region->id,
                 ]);
-        
-                $lugar_turistico = Lugar_turistico::create([ 
+
+                $lugar_turistico = Lugar_turistico::create([
                     'nombre' => $request->input('lugarTuristico'),
                     'descripcion' => $request->input('descripcion'),
                     'precio_entrada' => $request->input('inPrice'),
                     'hora_entrada' => $request->input('inTime'),
                     'hora_salida' => $request->input('outTime'),
+                    'ruta_imagen' => $nombreImagen,
                     'id_ciudad' => $ciudad->id,
-                    
+
                 ]);
+                
 
                 if($request->input('actividad')){
                     $actividad = Actividad::create([  

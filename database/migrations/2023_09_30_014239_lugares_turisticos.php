@@ -18,7 +18,7 @@ return new class extends Migration
             $table->double('precio_entrada', 8, 2)->nullable();
             $table->time('hora_entrada')->nullable();
             $table->time('hora_salida')->nullable();
-            $table->binary('imagen')->nullable();
+            $table->string('ruta_imagen')->nullable();
             $table->foreignId('id_ciudad')->references('id')->on('ciudades')->nullable();
         });
     }

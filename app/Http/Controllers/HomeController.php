@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
 
         return view('home', [
-            'lugar' => Lugar_turistico::all()
+            'lugares' => Lugar_turistico::all()
         ]);
     }
 }

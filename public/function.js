@@ -9,6 +9,11 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             sectionActividad.style.display = 'none';
         }
+        moveToFinal();
     });
+
+    function moveToFinal() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
     
 });

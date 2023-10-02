@@ -72,5 +72,8 @@
     cursor: pointer;
     animation: pulse 3s infinite;
 }
-
+.caja img{
+    width: 256px;
+    height: 256px;
+}
 

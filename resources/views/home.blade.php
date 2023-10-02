@@ -6,22 +6,26 @@
 
 <div class="cajas">
 
-    <div class="caja">
-        <a href="">
-            <div>
-                <img src="images/machuPichu.jpeg" alt="">
+    @foreach ($lugares as $lugar)
+        @if($lugar)
+            <div class="caja">
+                <a href="">
+                    
+                    <div>
+                        <img src="images/{{$lugar['ruta_imagen']}}" alt="">
+                    </div>
+                    <div class="contenido">
+                        <h2>Machu Picchu</h2>
+                        {{$lugar['nombre']}}
+                        {{$lugar['ruta_imagen']}}
+                    </div>
+                </a>
             </div>
-            <div class="contenido">
-                <h2>Machu Picchu</h2>
+        @else
+            No hay datos
+        @endif
 
-                @if($lugar)
-                    {{$lugar}}
-                @else
-                    No hay datos
-                @endif
-            </div>
-        </a>
-    </div>
+    @endforeach
 
 </div>
 

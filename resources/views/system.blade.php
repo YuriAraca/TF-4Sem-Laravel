@@ -16,7 +16,7 @@
         
         <h1 class="py-5">Agregar contenido</h1>
 
-        <form class="row g-3" method="POST">
+        <form class="row g-3" method="POST" enctype="multipart/form-data">
 
             @csrf
 

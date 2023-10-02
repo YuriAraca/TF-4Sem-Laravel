@@ -18,7 +18,7 @@
         </div>
         <div id="menu-head">
             <ul>
-                <li><a href="">Lugares turisticos</a></li>
+                <li><a href="/">Lugares turisticos</a></li>
                 <li><a href="">Actividades</a></li>
                 <li><a href="">Regiones</a></li>
                 <li><a href="">Ciudades</a></li>
