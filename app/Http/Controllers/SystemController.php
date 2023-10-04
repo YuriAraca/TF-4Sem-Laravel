@@ -34,11 +34,11 @@ class SystemController extends Controller
                     return redirect('/')->with('error', 'No se cargo la imagen.');
                 }
                 
-                $region = Region::create([
-                    'nombre' => $request->input('region'),
+                $region = Region::firstOrCreate([
+                    'nombre' => $request->input('region')
                 ]);
 
-                $ciudad = Ciudad::create([
+                $ciudad = Ciudad::firstOrCreate([
                     'nombre' => $request->input('ciudad'),
                     'id_region' => $region->id,
                 ]);

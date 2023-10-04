@@ -1,7 +1,8 @@
 
 
-#head{
+.banner{
     height: 100px;
+    background: linear-gradient(90deg, rgba(0,108,179,1) 0%, rgba(2,176,227,1) 47%, rgba(0,245,255,1) 100%);
 }
 #menu-head{
     position: absolute;
@@ -33,6 +34,12 @@
     font-size: 30px;
     transition: 0.5s;
 }
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @keyframes pulse {
     0% {
@@ -50,7 +57,7 @@
     align-self: center;
 }
 .caja {
-    width: 200px;
+    width: 250px;
     height: 150px;
     border-radius: 10px;
     overflow: hidden;
@@ -59,7 +66,7 @@
     margin: 25px;
     text-align: center;
 }
-.caja a{
+.caja a, .actividad a{
     text-decoration: none;
     color: black;
 }
@@ -68,7 +75,7 @@
     padding: 20px;
     font-weight: bold;
 }
-.caja:hover, .pulse{
+.caja:hover, .pulse:hover{
     cursor: pointer;
     animation: pulse 3s infinite;
 }
@@ -77,3 +84,10 @@
     height: 256px;
 }
 
+.details div div{
+    margin: 20px;
+}
+#img-details{
+    width: 450px;
+    max-width: 100vw;
+}

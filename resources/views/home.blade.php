@@ -1,31 +1,48 @@
 @include('templates.header')
 
-<div>
-    <h1> ¡Viaja y disfruta! con estas ofertas</h1>
+
+<div class="container-fluid m-0 p-0">
+    <img src="images/banner.jpg" alt="" width="100%">
 </div>
 
-<div class="cajas">
+<div class="center">
+    <form action="" method="post">
+        @csrf
+        <div class="input-group m-5">
+            <input type="text" name="buscar" class="form-control p-3" placeholder="Lugar turistico - region - ciudad" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="submit" value="Buscar" id="basic-addon2" class="input-group-text m-0 btn btn-success">
+        </div>
+    </form>
+</div>
 
-    @foreach ($lugares as $lugar)
-        @if($lugar)
+<div class="cajas container">
+
+    <h1 class="p-3"> ¡Viaja y disfruta! Conoce los mejores lugares turisticos del Peru</h1>
+
+    @if (empty($lugares))
+    No hay datos
+    @else
+        @foreach ($lugares as $lugar)
             <div class="caja">
-                <a href="">
-                    
+                <a href="/lugar-turistico/{{$lugar->lugar}}">
                     <div>
-                        <img src="images/{{$lugar['ruta_imagen']}}" alt="">
+                        <img src="images/{{$lugar->url}}" alt="">
                     </div>
                     <div class="contenido">
-                        <h2>Machu Picchu</h2>
-                        {{$lugar['nombre']}}
-                        {{$lugar['ruta_imagen']}}
+                        <h2>{{$lugar->lugar}}</h2>
+                        <div>
+                            <p>{{$lugar->region}} - {{$lugar->ciudad}}</p>
+                        </div>
                     </div>
                 </a>
+                <form action="borrar" method="post">
+                    @csrf
+                    <input type="hidden" name="lugarId" value="{{$lugar->lugarId}}">
+                    <input type="submit" value="Borrar" class="btn btn-danger">
+                </form>
             </div>
-        @else
-            No hay datos
-        @endif
-
-    @endforeach
+        @endforeach
+    @endif
 
 </div>
 
