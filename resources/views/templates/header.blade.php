@@ -22,15 +22,53 @@
                 <li><a href="/">Lugares turisticos</a></li>
                 <li><a href="/actividades">Actividades</a></li>
                 <li><a href="/regiones">Regiones y ciudades</a></li>
-                <div class="btn-group">
-                    <img src="images/usuario.png" alt="" data-bs-toggle="dropdown" aria-expanded="false" height="30px">
-                    
-                    <div class="dropdown-menu" id="menu-in">
-                        <a href="/login">Iniciar sessión</a>
-                        <a href="/register">Registrarme</a>
+
+                @guest
+                    <div class="btn-group">
+                        <img src="images/usuario.png" alt="" data-bs-toggle="dropdown" aria-expanded="false" height="30px">
+                        
+                        <div class="dropdown-menu" id="menu-in">
+                            <div><a href="/login">Iniciar sessión</a></div>
+                            <div><a href="/register">Registrarme</a></div>
+                        </div>
                     </div>
-                </div>
+                @endguest
+                @auth
+                    <div class="btn-group">
+                        <img src="images/usuario.png" alt="" data-bs-toggle="dropdown" aria-expanded="false" height="30px">
+                        
+                        <div class="dropdown-menu" id="menu-in">
+                            <div><a href="">{{ auth()->user()->name }}</a></div>
+                            <div><hr class="line-divider"></div>
+                            <div><a href="/logout">Cerrar sessión</a></div>
+                        </div>
+                    </div>
+                @endauth
             </ul>
+        </div>
+        <div id="menu-head-img">
+            <div class="btn-group">
+                <img src="images/menu.png" alt="" data-bs-toggle="dropdown" aria-expanded="false" height="30px">
+                
+                <div class="dropdown-menu" id="menu-in">
+                    @auth
+                        <div><a href="">{{ auth()->user()->name }}</a></div>
+                        <div><a href="">{{ auth()->user()->email }}</a></div>
+                        <div><hr class="line-divider"></div>
+                    @endauth
+                    <div><a href="/">Lugares turisticos</a></div>
+                    <div><a href="/actividades">Actividades</a></div>
+                    <div><a href="/regiones">Regiones y ciudades</a></div>
+                    <div><hr class="line-divider"></div>
+                    @guest
+                        <div><a href="/login">Iniciar sessión</a></div>
+                        <div><a href="/register">Registrarme</a></div>
+                    @endguest
+                    @auth
+                        <div><a href="/logout">Cerrar sessión</a></div>
+                    @endauth
+                </div>
+            </div>
         </div>
     </div>
 

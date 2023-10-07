@@ -1,7 +1,7 @@
 @include('templates.header')
 
 <div class="container border my-5 py-5 px-3" style="width: 300px">
-    
+
     <h2>INICIAR SESSIÓN</h2>
     <form action="/login" method="POST">
         @csrf
@@ -14,7 +14,10 @@
             <label for="floatingPassword">Contraseña</label>
         </div>
         
-        <input type="submit" class="form-control bg-success mt-3" value="Iniciar sessión">
+        <input type="submit" class="form-control bg-success my-3" value="Iniciar sessión">
+
+        <a class="text-black" href="/recover-password"> Olvidé mi contraseña </a>| 
+        <a class="text-black" href="register"> Registrarme</a>
     </form>
     
 </div>

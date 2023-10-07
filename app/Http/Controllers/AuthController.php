@@ -7,6 +7,7 @@ use Illuminate\Contracts\Support\ValidatedData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 
 class AuthController extends Controller
 {
@@ -43,5 +44,16 @@ class AuthController extends Controller
             return redirect('/login')->with('success', 'Registro correcto'); 
         }
         return redirect('/register')->with('error', 'Error al iniciar session');
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
     }
 }

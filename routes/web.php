@@ -30,6 +30,7 @@ Route::post('/', [HomeController::class, 'buscar']);
 
 Route::get('/login', [AuthController::class, 'showLogin']);
 Route::get('/register', [AuthController::class, 'showRegister']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
