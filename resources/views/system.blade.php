@@ -1,18 +1,6 @@
 @include('templates.header')
 
     <div class="container border my-5">
-
-        @if (session('error'))
-            <div class="alert alert-danger container text-center z-3" role="alert">
-                <h4 class="alert-heading">{{ session('error') }}</h4>
-            </div>
-        @endif
-        @if (session('success'))
-            <div class="alert alert-success container text-center z-3" role="alert">
-                <h4 class="alert-heading">{{ session('success') }}</h4>
-            </div>
-        @endif
-
         
         <h1 class="py-5">Agregar contenido</h1>
 

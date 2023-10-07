@@ -84,4 +84,39 @@ class HomeController extends Controller
         }
         
     }
+
+
+    public function showRegiones()
+    {
+        $results = DB::select('select 
+                    r.id region_id,
+                    r.nombre region,
+                    c.id ciudad_id,
+                    c.nombre ciudad,
+                    l.nombre lugar
+                from regiones r
+                join ciudades c on c.id_region = r.id
+                join lugares_turisticos l on l.id_ciudad = c.id');
+
+        $regiones = [];
+        foreach ($results as $result) {
+            if (!isset($regiones[$result->region_id])) {
+                $regiones[$result->region_id] = [
+                    'nombre' => $result->region,
+                    'ciudades' => []
+                ];
+            }
+            
+            if (!isset($regiones[$result->region_id]['ciudades'][$result->ciudad_id])) {
+                $regiones[$result->region_id]['ciudades'][$result->ciudad_id] = [
+                    'nombre' => $result->ciudad,
+                    'lugares' => []
+                ];
+            }
+
+            $regiones[$result->region_id]['ciudades'][$result->ciudad_id]['lugares'][] = $result->lugar;
+        }
+
+        return view('regiones', compact('regiones'));
+    }
 }

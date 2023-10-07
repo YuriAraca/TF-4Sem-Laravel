@@ -15,14 +15,13 @@
     
     <div class="container-fluid banner">
         <div id="title-head">
-            <h1>CITY TOURS</h1>
+            <h1><a href="/">CITY TOURS</a></h1>
         </div>
         <div id="menu-head">
             <ul>
                 <li><a href="/">Lugares turisticos</a></li>
                 <li><a href="/actividades">Actividades</a></li>
-                <li><a href="">Regiones</a></li>
-                <li><a href="">Ciudades</a></li>
+                <li><a href="/regiones">Regiones y ciudades</a></li>
                 <li><a href=""><img src="images/usuario.png" alt="" height="30px"></a></li>
             </ul>
         </div>

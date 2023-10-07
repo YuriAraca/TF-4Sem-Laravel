@@ -36,3 +36,4 @@ Route::get('/actividades', [HomeController::class, 'showActividades']);
 Route::post('/borrarActividad', [HomeController::class, 'borrarActividad']);
 
 Route::get('/regiones', [HomeController::class, 'showRegiones']);
+Route::post('/borrarRegiones', [HomeController::class, 'borrarRegiones']);

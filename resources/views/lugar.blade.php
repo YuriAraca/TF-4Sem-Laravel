@@ -49,8 +49,8 @@
                 <h6 class="text-sm-end">Duracion de actividad</h6>
             </div>
             <div class="col">
-                S/. {{$lugar->precioActividad}}
-                {{$lugar->duracionActividad}}
+                <div>S/. {{$lugar->precioActividad}}</div>
+                <div>{{$lugar->duracionActividad}}</div>
             </div>
             
         </div>
