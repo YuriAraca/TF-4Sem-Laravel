@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SystemController;
 use App\Http\Controllers\LugarController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,12 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'show']);
 Route::post('/borrar', [HomeController::class, 'borrar']);
 Route::post('/', [HomeController::class, 'buscar']);
+
+Route::get('/login', [AuthController::class, 'showLogin']);
+Route::get('/register', [AuthController::class, 'showRegister']);
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 
 Route::get('/lugar-turistico/{lugar}', [LugarController::class, 'show']);
 

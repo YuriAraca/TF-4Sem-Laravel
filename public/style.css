@@ -39,6 +39,16 @@
     justify-content: center;
     align-items: center;
 }
+#menu-in{
+    background-color: darkslategray;
+    width: 100%;  
+}
+#menu-in a{
+    text-decoration: none;
+    color: white;
+    padding: 0em 0.8em 0em 0.8em;
+    margin: 0em 0.8em 0em 0.8em;
+}
 
 
 @keyframes pulse {

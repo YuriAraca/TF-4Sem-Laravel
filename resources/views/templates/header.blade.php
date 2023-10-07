@@ -22,7 +22,14 @@
                 <li><a href="/">Lugares turisticos</a></li>
                 <li><a href="/actividades">Actividades</a></li>
                 <li><a href="/regiones">Regiones y ciudades</a></li>
-                <li><a href=""><img src="images/usuario.png" alt="" height="30px"></a></li>
+                <div class="btn-group">
+                    <img src="images/usuario.png" alt="" data-bs-toggle="dropdown" aria-expanded="false" height="30px">
+                    
+                    <div class="dropdown-menu" id="menu-in">
+                        <a href="/login">Iniciar sessión</a>
+                        <a href="/register">Registrarme</a>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>
