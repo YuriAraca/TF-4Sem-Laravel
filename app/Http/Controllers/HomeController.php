@@ -23,27 +23,17 @@ class HomeController extends Controller
     
     private function data($buscar = null)
     {
-        $sql = 'select 
-                    l.id as lugarId,
-                    r.nombre as region, 
-                    c.nombre as ciudad, 
-                    l.nombre as lugar, 
-                    l.ruta_imagen as url 
-                from regiones r
-                join ciudades c on c.id_region = r.id
-                join lugares_turisticos l on l.id_ciudad = c.id';
-    
-        $parameters = [];
+        $lugares = Lugar_turistico::join('ciudades', 'ciudades.id', '=', 'lugares_turisticos.id_ciudad')
+                                  ->join('regiones', 'regiones.id', '=', 'ciudades.id_region')
+                                  ->select('lugares_turisticos.id as lugarId', 'regiones.nombre as region', 'ciudades.nombre as ciudad', 'lugares_turisticos.nombre as lugar', 'lugares_turisticos.ruta_imagen as url');
+        
         if ($buscar) {
-            $sql .= ' where r.nombre = ?
-                    or c.nombre = ?
-                    or l.nombre = ?';
-            $parameters = [$buscar, $buscar, $buscar];
+            $lugares->where('regiones.nombre', 'LIKE', '%' . $buscar . '%')
+                    ->orWhere('ciudades.nombre', 'LIKE', '%' . $buscar . '%')
+                    ->orWhere('lugares_turisticos.nombre', 'LIKE', '%' . $buscar . '%');
         }
     
-        $lugares = DB::select($sql, $parameters);
-    
-        return view('home', compact('lugares'));
+        return view('home', ['lugares' => $lugares->get()]);
     }
 
 

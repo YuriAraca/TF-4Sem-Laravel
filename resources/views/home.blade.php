@@ -36,6 +36,7 @@
                     </div>
                 </a>
                 @auth
+                    <a href="/edit-content/{{$lugar->lugarId}}" class="btn btn-warning">Editar</a>
                     <form action="borrar" method="post">
                         @csrf   
                         <input type="hidden" name="lugarId" value="{{$lugar->lugarId}}">

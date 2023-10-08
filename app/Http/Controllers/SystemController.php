@@ -43,7 +43,7 @@ class SystemController extends Controller
                     'id_region' => $region->id,
                 ]);
 
-                $lugar_turistico = Lugar_turistico::create([
+                $lugar_turistico = Lugar_turistico::updateOrCreate([
                     'nombre' => $request->input('lugarTuristico'),
                     'descripcion' => $request->input('descripcion'),
                     'precio_entrada' => $request->input('inPrice'),
@@ -56,7 +56,7 @@ class SystemController extends Controller
                 
 
                 if($request->input('actividad')){
-                    $actividad = Actividad::create([  
+                    $actividad = Actividad::updateOrCreate([  
                         'actividad' => $request->input('actividad'),
                         'descripcion' => $request->input('descripcionActividad'),
                         'precio' => $request->input('priceActividad'),
@@ -73,5 +73,25 @@ class SystemController extends Controller
 
             return redirect('/system')->with('error', 'Hubo un error al registrar los datos'.$e);
         }
+    }
+
+    public function showData($id){
+        $lugar = DB::selectOne('SELECT 
+        r.nombre region,
+        c.nombre ciudad,
+        l.nombre lugar,
+        l.descripcion descripcion,
+        l.precio_entrada inprice,
+        l.hora_entrada intime,
+        l.hora_salida outtime
+        FROM Empresa_Turismo.lugares_turisticos l
+        join ciudades c on c.id = l.id_ciudad
+        join regiones r on r.id = c.id_region where l.id = ?;', [$id]);
+
+        if (!$lugar) {
+            return redirect('/')->with('error', 'Lugar no encontrado.');
+        }
+
+        return view('system', compact('lugar'));
     }
 }

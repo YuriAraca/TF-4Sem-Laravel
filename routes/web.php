@@ -26,6 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/system', [SystemController::class, 'show']);
     Route::post('/system', [SystemController::class, 'addContent']);
 
+    Route::get('/edit-content/{id}', [SystemController::class, 'showData']);
+
     Route::post('/borrar', [HomeController::class, 'borrar']);
 
     Route::post('/borrarActividad', [HomeController::class, 'borrarActividad']);
