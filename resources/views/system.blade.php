@@ -26,7 +26,7 @@
             <div class="input-group mb-3 col">
                 <label for="lugar" class="form-label">Lugar Turistico</label>
                 <div class="input-group">
-                    <input type="text" name="lugarTuristico" class="form-control" id="lugar" placeholder="Lugar turistico" aria-label="lugar" aria-describedby="basic-addon1">
+                    <input type="text" name="lugarTuristico" class="form-control" id="lugar" placeholder="Lugar turistico" aria-label="lugar" aria-describedby="basic-addon1" required>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
             <div class="input-group mb-3 col">
                 <label for="imagen" class="form-label">Imagen</label>
                 <div class="input-group">
-                    <input type="file" name="imagen" class="form-control">
+                    <input type="file" name="imagen" class="form-control" required>
                 </div>
             </div>
 

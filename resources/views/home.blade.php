@@ -35,11 +35,13 @@
                         </div>
                     </div>
                 </a>
-                <form action="borrar" method="post">
-                    @csrf
-                    <input type="hidden" name="lugarId" value="{{$lugar->lugarId}}">
-                    <input type="submit" value="Borrar" class="btn btn-danger">
-                </form>
+                @auth
+                    <form action="borrar" method="post">
+                        @csrf   
+                        <input type="hidden" name="lugarId" value="{{$lugar->lugarId}}">
+                        <input type="submit" value="Borrar" class="btn btn-danger">
+                    </form>
+                @endauth
             </div>
         @endforeach
     @endif

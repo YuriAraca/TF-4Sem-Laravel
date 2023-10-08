@@ -40,6 +40,8 @@
                         <div class="dropdown-menu" id="menu-in">
                             <div><a href="">{{ auth()->user()->name }}</a></div>
                             <div><hr class="line-divider"></div>
+                            <div><a href="/system">Agregar contenido</a></div>
+                            <div><hr class="line-divider"></div>
                             <div><a href="/logout">Cerrar sessión</a></div>
                         </div>
                     </div>
@@ -54,6 +56,8 @@
                     @auth
                         <div><a href="">{{ auth()->user()->name }}</a></div>
                         <div><a href="">{{ auth()->user()->email }}</a></div>
+                        <div><hr class="line-divider"></div>
+                        <div><a href="/system">Agregar contenido</a></div>
                         <div><hr class="line-divider"></div>
                     @endauth
                     <div><a href="/">Lugares turisticos</a></div>

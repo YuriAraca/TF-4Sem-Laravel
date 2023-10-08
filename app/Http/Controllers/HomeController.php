@@ -51,6 +51,10 @@ class HomeController extends Controller
     {
         $lugarId = $request->input('lugarId');
         try{
+            $ruta_imagen = DB::selectOne('select l.ruta_imagen from lugares_turisticos l where id = ?', [$lugarId]);
+            if (file_exists('images/'.$ruta_imagen->ruta_imagen)) {
+                unlink('images/'.$ruta_imagen->ruta_imagen);
+            }
             DB::table('lugares_turisticos')->where('id', $lugarId)->delete();
             return back()->with('success', 'Lugar turistico borrado');
         }catch(\Exception $e){

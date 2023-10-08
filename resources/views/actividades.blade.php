@@ -25,11 +25,13 @@
                             </div>
                         </div>
                     </a>
-                    <form action="borrarActividad" method="post">
-                        @csrf
-                        <input type="hidden" name="actividadId" value="{{$actividad->id}}">
-                        <input type="submit" value="Borrar" class="btn btn-danger">
-                    </form>
+                    @auth
+                        <form action="borrarActividad" method="post">
+                            @csrf
+                            <input type="hidden" name="actividadId" value="{{$actividad->id}}">
+                            <input type="submit" value="Borrar" class="btn btn-danger">
+                        </form>
+                    @endauth
                 </div>
             @endforeach
         @endif

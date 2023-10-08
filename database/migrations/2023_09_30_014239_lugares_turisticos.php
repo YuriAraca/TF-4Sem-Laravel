@@ -19,7 +19,7 @@ return new class extends Migration
             $table->time('hora_entrada')->nullable();
             $table->time('hora_salida')->nullable();
             $table->string('ruta_imagen')->nullable();
-            $table->foreignId('id_ciudad')->references('id')->on('ciudades')->nullable();
+            $table->foreignId('id_ciudad')->nullable();
         });
     }
 
