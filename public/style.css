@@ -40,11 +40,6 @@
     font-size: 30px;
     transition: 0.5s;
 }
-.center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 #menu-in{
     background-color: darkslategray;
     width: 300px;

@@ -5,10 +5,10 @@
     <img src="images/banner.jpg" alt="" width="100%">
 </div>
 
-<div class="center">
+<div class="container" style="width: 380px">
     <form action="" method="post">
         @csrf
-        <div class="input-group m-5">
+        <div class="input-group my-3">
             <input type="text" name="buscar" class="form-control p-3" placeholder="Lugar turistico - region - ciudad" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <input type="submit" value="Buscar" id="basic-addon2" class="input-group-text m-0 btn btn-success">
         </div>
